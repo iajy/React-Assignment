@@ -21,7 +21,7 @@ function NavBar() {
       
       
     </div>
-    <div className='container flex justify-between items-center md:hidden bg-blue-500 text-white h-30 p-4 '>
+    <div className='container fixed flex justify-between items-center md:hidden bg-blue-500 text-white h-30 p-4 '>
       <div></div>
       <div>
             <span className='text-3xl font-medium'>Loan Calculator</span>
