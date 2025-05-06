@@ -1,31 +1,64 @@
-import React from 'react'
+import React from "react";
 
-const TableDetails=()=> {
+const TableDetails = ({
+  convertedEmi,
+  amount,
+  selectedCurrency,
+  intrest,
+  month,
+}) => {
+  const rows = [];
+  let balance = amount;
+
+  for (let i = 1; i <= month; i++) {
+    console.log(i);
+
+    const intrestPerMonth = (intrest / 100 / 12) * balance;
+    const principal = convertedEmi - intrestPerMonth;
+    balance = balance - convertedEmi + intrestPerMonth;
+
+    rows.push({
+      month: i,
+      principal: principal,
+      intrest: intrestPerMonth,
+      balance: balance,
+    });
+  }
+
   return (
-    <div>
-        <div>
-          <table border={1} width={1500} align="center" cellSpacing={20} cellPadding={20}>
-            <tr className="p-10 m-10">
-              <td>Month</td>
-              <td>Principal</td>
-              <td>Intrest</td>
-              <td>Remaining Balance </td>
-            </tr>
-            <tbody>
-                <tr className='py-20'>
-                    <td className='py-5 px-5'>1</td>
-                    <td className='px-5'>111</td>
-                    <td className='px-5'>222</td>
-                    <td className='px-5'>222</td>
-                </tr>
-
-            </tbody>
-            <tfoot></tfoot>
-            
-          </table>
-        </div>
+    <div className="py-10 w-auto">
+      <table border="1" align="center" width={1200}>
+        <thead className="table-auto">
+          <tr className="border-b border-gray-300">
+            <td className="px-5">Month</td>
+            <td>Principal</td>
+            <td>Intrest</td>
+            <td>Remaining Balance </td>
+          </tr>
+        </thead>
+      </table>
+      <div className="overflow-y-auto h-100 ">
+        <table width={1200}>
+          <tbody className="">
+            {rows.map((row, index) => (
+              <tr key={index} className="border-b border-gray-300 h-15">
+                <td className="px-10">{row.month}</td>
+                <td>
+                  {row.principal.toFixed(2)} {selectedCurrency}
+                </td>
+                <td>
+                  {row.intrest.toFixed(2)} {selectedCurrency}
+                </td>
+                <td>
+                  {row.balance.toFixed(2)} {selectedCurrency}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default TableDetails
+export default TableDetails;

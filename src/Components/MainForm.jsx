@@ -3,17 +3,12 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import EmiTable from "./EmiTable";
 
 const MainForm = () => {
-  const [amount, setAmount] = useState();
-  const [rate, setRate] = useState();
-  const [year, setYear] = useState();
+  const [amount, setAmount] = useState(100000);
+  const [rate, setRate] = useState(8.5);
+  const [year, setYear] = useState(5);
 
   const navigate = useNavigate();
-  //   const Calculate = (e) => {
-  //     setAmount(e.target.value);
-  // setIntrest(e.target.value);
 
-  // setTerm(e.target.value);
-  //   };
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/emiTable", {
@@ -27,12 +22,12 @@ const MainForm = () => {
 
   return (
     <>
-      <div className="py-20 px-40 w-250">
+      <div className="container py-20 px-40 h-full">
         <span className="text-4xl font-medium">Loan Calculator DashBoard</span>
         <br />
         <br />
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-3 gap-x-10 gap-y-5">
+          <div className="grid grid-cols-3 gap-x-10 gap-y-5 w-2xl">
             <div className="relative">
               <input
                 id="Amount"
@@ -111,12 +106,12 @@ const MainForm = () => {
             </button>
           </div>
         </form>
-        <br />
         <Routes>
-          {/* <Route path="/" element={<MainForm />} /> */}
           <Route path="/emiTable" element={<EmiTable />} />
         </Routes>
+
       </div>
+      
     </>
   );
 };
