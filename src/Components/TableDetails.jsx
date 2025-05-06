@@ -27,7 +27,7 @@ const TableDetails = ({
 
   return (
     <div className="py-10 w-auto">
-      <table border="1" align="center" width={1200}>
+      <table border="1" align="center" width={1200} className="dark:bg-gray-900 h-20">
         <thead className="table-auto">
           <tr className="border-b border-gray-300">
             <td className="px-5">Month</td>

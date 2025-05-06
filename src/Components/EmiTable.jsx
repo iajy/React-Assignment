@@ -82,7 +82,7 @@ const EmiTable = () => {
             </select>
             <label
               htmlFor="selection"
-              className="absolute left-2 -top-3 text-sm mx-1 bg-white
+              className="absolute left-2 -top-3 text-sm mx-1 bg-white dark:bg-gray-950
              peer-focus:text-blue-500
              peer-focus:border-blue-500"
             >

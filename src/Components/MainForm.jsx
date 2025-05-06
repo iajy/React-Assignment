@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import EmiTable from "./EmiTable";
 
-const MainForm = () => {
+const MainForm = ({darkMode}) => {
   const [amount, setAmount] = useState(100000);
   const [rate, setRate] = useState(8.5);
   const [year, setYear] = useState(5);
@@ -22,8 +22,9 @@ const MainForm = () => {
 
   return (
     <>
-      <div className="container py-20 px-40 h-full">
-        <span className="text-4xl font-medium">Loan Calculator DashBoard</span>
+    <div className={`${darkMode && "dark"}`}>
+      <div className="container py-20 px-40 h-full dark:text-white dark:bg-gray-950">
+        <span className="text-4xl font-medium ">Loan Calculator DashBoard</span>
         <br />
         <br />
         <form onSubmit={handleSubmit}>
@@ -39,7 +40,7 @@ const MainForm = () => {
               />
               <label
                 htmlFor="Amount"
-                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white text-blue-500 
+                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white dark:bg-gray-950 text-blue-500 
                 peer-placeholder-shown:text-base 
                 peer-placeholder-shown:top-0 
                 peer-placeholder-shown:text-gray-400 
@@ -63,7 +64,7 @@ const MainForm = () => {
               />
               <label
                 htmlFor="Intrest"
-                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white text-blue-500 
+                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white dark:bg-gray-950 text-blue-500 
                 peer-placeholder-shown:text-base 
                 peer-placeholder-shown:top-0 
                 peer-placeholder-shown:text-gray-400 
@@ -86,7 +87,7 @@ const MainForm = () => {
               />
               <label
                 htmlFor="Term"
-                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white text-blue-500 
+                className="absolute left-0 -top-7 m-4 px-1 text-sm bg-white dark:bg-gray-950 text-blue-500 
                 peer-placeholder-shown:text-base 
                 peer-placeholder-shown:top-0 
                 peer-placeholder-shown:text-gray-400 
@@ -99,7 +100,7 @@ const MainForm = () => {
               </label>
             </div>
             <button
-              className="bg-blue-500 p-2  w-1/2 text-white rounded "
+              className="bg-blue-500 p-2  w-1/2 text-white rounded dark:bg-blue-300 "
               type="submit"
             >
               CALCULATE
@@ -111,7 +112,7 @@ const MainForm = () => {
         </Routes>
 
       </div>
-      
+      </div>
     </>
   );
 };
