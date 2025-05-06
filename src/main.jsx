@@ -13,9 +13,6 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <NavBar/>
     <MainForm/>
-    
     </BrowserRouter>
-    
-    
   </StrictMode>,
 )
